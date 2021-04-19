@@ -47,10 +47,13 @@ When i click on a link 'edit' under the book details i want to be taken to a for
 - we need to render the fields of that book in a form
 
 
-When i click on edit i want to be taken to the book details view showing the changed fields of the book and the book should be updated in the database
+When i click on edit i want to be taken to the book details view showing the changed fields of the book and the book should be updated in the database ✅
 - we need a post route /books/edit/:id
 - we need to update that book
 - we need ro redirect to the book details view for this book
 
 
 When i click on a link 'delete' under a book details view i want to be able to delete the book and be redirected to the books list
+- we need a link under the book details
+- we need a route /books/delete/:id
+- we need to redirect to /books

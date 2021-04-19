@@ -62,4 +62,35 @@ router.get('/books/:id', (req, res, next) => {
     })
 })
 
+router.get('/books/delete/:id', (req, res, next) => {
+  const bookId = req.params.id;
+  Book.findByIdAndDelete(bookId)
+    .then(() => {
+      res.redirect('/books');
+    })
+    .catch(err => {
+      next(err);
+    })
+});
+
+
+router.post('/books/edit/:id', (req, res, next) => {
+  const bookId = req.params.id;
+  const { title, author, description, rating } = req.body;
+  Book.findByIdAndUpdate(bookId, {
+    title: title,
+    author: author,
+    description: description,
+    rating: rating
+  })
+    .then(book => {
+      console.log(bookId)
+      res.redirect(`/books/${book}`)
+    })
+    .catch(err => {
+      next(err);
+    })
+});
+
+
 module.exports = router;
